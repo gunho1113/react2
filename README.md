@@ -1,5 +1,28 @@
 # 202130418 유건호
 
+### 0904
+```
+- chcolatey에 복사후 powershell에 붙여놓기
+
+https://chocolatey.org/install#individual
+
+- git 다운(마찬가지로 powershell에 다운)
+https://community.chocolatey.org/packages?q=git
+
+node install 
+nvm install
+```
+```js
+   Get started by editing&nbsp;
+            <code className={styles.code}>pages/about.js</code>
+          </p>
+```
+
+- 바벨이나 웹팩의 설정도 커스터마이징 가능함
+- 바빌 : 자바스크립트 트랜스컴파일이며 , 최신 자바스크립트 코드를 하위 호환성을 보장하는 스크립트 코드로 변환하는 일을 담당함
+- 하위 호환성이 보장되면 어떤 js코드도 실행할 수 있음
+
+
 ### 0828
 ---
 ### NEXT.JS
@@ -13,7 +36,9 @@
 SSR은 미리 만들어 놓은 페이지를 서비스 하기 때문에 속도는 빠르지만 수정이 불가능하다. 
 이러한 단점을 보완하고자 나온것이 ISR이며 이미 생성돈 페이지를 일정 시간이 지난 후에 다시 생성한다.(최신 데이터로 업데이트)
 ```
-
+npm i -g create-react-app
+ npx create-next-app@latest
+name : page-router
 next.js가 제공하는 새로운  기능
 - 코드 분할
 - 파일 기반 라이팅
