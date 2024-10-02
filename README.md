@@ -1,5 +1,54 @@
 # 202130418 유건호
 
+### 1002
+
+```jsx woo/index.jsx
+export default function index() {
+  return (
+    <>
+      <h1>bar/woo/index page</h1>
+      <h1>localhost:3000/bar/woo</h1>
+    </>
+  );
+}
+```
+
+```jsx index.jsx
+export default function index() {
+  return (
+    <>
+      <h1>bar/index page</h1>
+      <h1>localhost:3000/bar</h1>
+    </>
+  );
+}
+```
+
+```jsx woo.jsx
+export default function BraIndex() {
+  return (
+    <>
+      <h1>bar/woo/index page</h1>
+      <h1>localhost:3000/bar/foo</h1>
+    </>
+  );
+}
+```
+
+```jsx blog/page.jsx
+export default function Blog(props) {
+  console.log(props);
+  return (
+    <>
+      <h1>Blog page</h1>
+      <h1>blog: {props.param.Blog}</h1>
+      <h1>blog: {props.searchParams.id}</h1>
+      <h1>blog: {props.searchParams.name}</h1>
+    </>
+  );
+}
+```
+
 ### 0925
 
 ```js foo.jsx
