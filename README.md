@@ -1,5 +1,48 @@
 # 202130418 유건호
 
+## 1023
+
+### image component - local
+
+- ## Static Resource
+  - 정적 자원 중 이미지 파일은 SEO에 많은 영향을 미침
+  - 다운로드 시간이 많이 걸리고, 렌더링 후에 레이아웃이 변경되는 등 ux에 영향을 미침
+  - 이것을 누적 레이아웃 이동(CLS:Cumulative Layout shift)이라고 함
+  - image 컴포넌트를 사용하면 cls 문제를 해결함
+  - lazy loading: 이미지 로드 시점을 필여할 때까지 지연시키는 기술
+  - 이미지 사이즈 최적화로 사이즈를 1/10이하로 줄여 줌
+  - placeholder를 제공
+
+### image component - Remote
+
+- pixabay와 같은 외부 이미지를 사용하려면 next.config.mjs에 URL을 추가해 줘야함.
+- 만일 파일이 없다면 Project root에 추가하면 됨
+
+```js
+images: {
+  remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "cdn.pixabay.com",
+    },
+  ];
+}
+```
+
+nextjs에서는 특정 파일과 디렉토리가 지정된 위치에 있어야 한다.
+
+- \_app.js나 \_document.js 파일.pages/와public/
+- Node_modules/: Next.js 프로젝트의 의존성 패키지를 설치하는디렉토리
+- pages/: 애플리케이션의 페이지 파일을 저장하고 라우팅 시스템 관리
+- public/: 컴파일된 css 및 자바스크립트 파일,이미지,아이콘 등의 정적 자원 관리
+- styles/: 스타일링 포맷(CSS,SASS,LESS 등)과 관계없이 스타일링 모듈 관리
+
+lib 파일 수성
+
+- lib파일은 서드파티 라이브러리를 감싸는 스크립트를 말한다
+- lib파일은 특정라이브러리에 특화된 것이다.
+- 만일 HraphQL을 사용한다면,클라이언트를 초기화 하고, 질의문과 뮤테이션을 저장하는 등의 작은 작업이 필요함
+
 ## 1004
 
 - page Project Layout - \_app
