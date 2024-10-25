@@ -1,5 +1,77 @@
 # 202130418 유건호
 
+## 1025
+
+### 클라이언트에서 REST API 사용하기
+
+- getServerSideProps나 getStaticProps함수 내에서 REST API로 호출하면 서버가 데이터를 가져오지만, 그외 컴포넌트 내에서 데이터를 불러오는 작업은 클라이언트가 실행함
+- 클라이언트는 주로 두 가지 시점에 데이터를 불러온다.
+
+```
+  1. 컴포넌트가 마운트된 후
+  2. 특정이벤트가 발행한 후
+```
+
+- 브러우저의 내장 fetcj API 혹은 Axios와 같은 외부 라이브러리를 사용해서 http 요청을 보냄
+
+- 교차 출처 리소스 공유는 브라우저에서 제공하는 보안 기능으로, 서로다른 api요청을 보낼 때 발생할 수 있는 여러가지 보안 위험을 제어함
+
+TailwindCss
+
+- json server
+
+  `npm i -g json-server`
+
+### Axios란?
+
+- 간단한 문법: 기본적으로 JSON 데이터를 자동으로 변환해주므로,res.data로 쉽게 접근할 수 있다.
+- http 요청 취소 : 여청을 취소할 수 있는 기능이 내장되어 있다
+- 요청 및 응답 인터셉터: 요청이나 응답을 가로채어 수정할 수 있는 기능이 있어, 인증 토큰추가와 같은 작업이 간편하다
+- http 오류 코드에 따라 에러르 더 쉽게 처리가능하다
+
+- 복잡한 요청이나 에러 처리가 필요한 경우 axios가 더 적합함
+- 간단한 요청이나 내장된 기능을 활용하고 싶다면 fetch
+
+`npm install axios`
+
+### fetch api
+
+- 내장 api: 브라우저에 내장되어 있어 별도의 설치 필요없음
+- Promise 기반: 비동기 작업을 처리하는데 익숙한 구조
+- 스트림 처리 : 데이터를 스트리밍으로 처리할 수 있는 기능. 큰파일을 처리하는데 유용함
+
+- 단점
+  - 에러처리 복잡성
+  - json 변환 수동 처리
+
+```js rest-api/page.jsx
+export default async function RestApi() {
+  const res = await fetch("http://localhost:3001");
+  const users = await res.data;
+  return (
+    <ul>
+      {users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.id}</h1>
+          <h3>{user.name}</h3>
+          <h3>{user.title}</h3>
+          <h3>{user.body}</h3>
+        </div>
+      ))}
+    </ul>
+  );
+}
+```
+
+### Axios 사용하기
+
+- useState 사용 : users를 useState로 관리하여 데이터를 불러온 후 렌더링할 수 있게 한다
+  초기상태는 null
+- useEffect 사용: 컴포넌트가 처음 렌더링 될 때 한 번만 데이터를 가져오기 위해 사용
+- 로딩상태처리 : 데이터를 불러오는 동안 로딩 메세지를 표시하도록 loading 상태 추가
+
+- 조건부 렌더링
+
 ## 1023
 
 ### image component - local
