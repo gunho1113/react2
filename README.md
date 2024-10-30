@@ -1,5 +1,77 @@
 # 202130418 유건호
 
+## 1030
+
+### CSS와 내장 스타일링 메서드
+
+### Styled JSX
+
+```jsx Styled.jsx
+export default function StyledJsx() {
+  return (
+    <>
+      <button className="button">Styled JSX</button>
+      <style jsx>
+        {`
+          .button {
+            padding: 1em;
+            border-radius: 1em;
+            background: green;
+            coloer: white;
+          }
+        `}
+      </style>
+    </>
+  );
+}
+```
+
+- styled jsx는 css-in-js 라이브러이며 내장 모듈이기 때문에 설치가 필요 없음
+  css 속성 지정을 위해 자바스크립트를 사용할 수 있는 라이브러리임
+
+---
+
+- css-in-js의 단점
+- IDE나 코드 편집기 등 개발 도구에 대한 지원이 부족함
+- 문법 하이라이팅, 자동 완성, 린트기능을 제공하지 않음
+- 코드내에서 css에 대한 의존성이 점점 커져 앱 번들도 커지고 느려짐
+- 서버에 미리 css를 설정해도 클라이언트에서 리엑트 하이드레이션이 끝나면 css를 다시 생성해야함
+- 이 때문에 실행 시점에 부화가 커지며 웹 앱이 느려짐
+
+### CSS Module
+
+- css-in-js의 단점을 회피하는 방법은 css module 이다.
+
+```js page.js
+import Image from "next/image";
+import styles from "./page.module.css";
+
+export default function Home() {
+  return (
+    <>
+      <div className={foo.maine}>
+        <h1>Home</h1>
+      </div>
+    </>
+  );
+}
+```
+
+- .module.css로 끝나는 파일에서 css 클래스를 가지고온다
+- Home.module.css 파일은 일반적인 css파일이지면 css module이 그 내용을 자바스크립트 객체로 변환함
+- 변환한 객체에서 모든 키는 클래스 이름을 가리킨다
+
+### SASS
+
+```css foo.module.scss
+$woo: red;
+
+.bar {
+  font: 500;
+  color: $woo;
+}
+```
+
 ## 1025
 
 ### 클라이언트에서 REST API 사용하기
