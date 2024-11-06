@@ -4,7 +4,9 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <div className={foo.maine}>
+        <h1>Home</h1>
+      </div>
     </>
   );
 }
