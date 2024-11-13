@@ -1,5 +1,35 @@
 # 202130418 유건호
 
+## 1113
+
+### Props 흐름의 이해
+
+- nextjs의 데이터 흐름은 단방향으로 이루어 짐
+- 즉,parents에서 child component의 방향으로 props의 흐름이 이루어짐
+- 따라서 계층 구조가 복잡해 지면 props driling 문제가 생김
+- props driling은 여러 개의 component를 지나 props가 전달 되면서 발생하는 문제
+
+```js
+import ComponentA from "../components/ui/ComponentA";
+export default function PropsFlow() {
+  return (
+    <>
+      <h1>
+        Propos Flow
+        <ComponentA />
+      </h1>
+    </>
+  );
+}
+```
+
+### Comtext API
+
+- context는 ux 구축에 많이 사용되는 React의 기능이다
+- React는 16.3버전 부터 정식적으로 context api를 지원함
+- 일반적으로 props는 부모에서 자식으로 전달 되는 단방향 통신을 한다
+- context Api는 특정 component가 props를 사용하지 않고, 하위 component를 포함한 모든 component에 데이터를 공유할 수 있는 기능을 제공함
+
 ## 1106
 
 ### UI 프레임 워크
