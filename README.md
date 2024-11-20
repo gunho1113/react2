@@ -1,5 +1,72 @@
 # 202130418 유건호
 
+## 1120
+
+### use client
+
+```
+서버컴포넌트와 클라이언트 컴포넌트를 구분하기 위해 사용
+```
+
+- 서버에서 렌더링하도록 설계되어, 클라이언트에서만 필요한 컴포넌트를 명시적으로 지정해야 할 필요가 있음
+- use client를 컴포넌트 상단에 선언하면 해당 컴포넌트는 클라이언트에서만 렌더링되어, 주로 상태 관리나 브라우저 전용 api 사용이 필요한 경우에 사용됨
+
+### 디렉터리 구조
+
+- app : Routing page 관리
+- components : 재사용가능한 공통 컴포넌트 관리
+- context : context 컴포넌트 관리
+- features : 기능별 컴포넌트 관리
+- store : Redux store 설정 파일 관리
+- styles : css, sass등 스타일 관리
+
+### context api vs Redux
+
+단점
+
+- 복잡한 상태 관리에 한계 : 상태가 복잡하거나 다양한 액션을 통해 변경이 이루어져야 하는 경우, 관리가 어려워 질 수 있다.
+- 성능문제 : 상태가 업데이트되면 해당 상태를 사영하는 모든 하위 컴포넌트가 다시 렌더링 되므로, 상태 범위가 넓을 경우 성능에 영향을 미칠 수 있다.
+
+redux
+
+- redux는 전영 상태를 관리하기 위한 독립적인 state 관리 라이브러리
+- 상태의 변경을 예측 가능하게 하고, 전역 state 관리를 더 구조적으로 지원
+- store,reducer,action 등의 개념을 사용해 state와 state dispatch를 관리함
+
+장점
+
+- 명확한 상태 관리 구조 : 액션과 reducer를 통해 state dispatch를 과정을 예측 가능하게 만들고, 코드의 가독성을 높인다
+- 미들웨어 지원 : redux-thunk, redux-sage와 같은 미들웨오를 사용해 비동기 로직을 쉽게 처리가능함
+- 디버깅 도구 : Redux devtools를 통해 상태 변화 및 디버깅이 용이함
+- 모든 프레임워크와 호환 : react뿐만 아니라 다른 자바스크립트 프에임워크와도 함께 사용 가능함
+
+단점
+
+- 설정 코드 복잡도 : Context pai에 비해 설정이 복잡하며, boilerplate 코드가 많이 필요함
+- 추가 라이브러리 필요 : redux 자체가 외부 라이브러리이므로 설치 및 유기 관리가 필요함
+- 작은 애플리케이션에는 과한 설정 : 단순한 상태 관리가 필요한 작은 애플리케이션에서는 과도한 설정일 수 있다
+
+`npm install @reduxjs/toolkit react-redux`
+
+```js createSlice.jsx
+import { createSlice } from "@reduxjs/toolkit";
+
+export const countetSlice = createSlice({
+  name: "counter",
+  initialState: {
+    value: 0,
+  },
+  reducers: {
+    increment: (state) => {
+      state.value += 1;
+    },
+    decrement: (state) => {
+      state.value -= 1;
+    },
+  },
+});
+```
+
 ## 1113
 
 ### Props 흐름의 이해
@@ -23,7 +90,7 @@ export default function PropsFlow() {
 }
 ```
 
-### Comtext API
+### Context API
 
 - context는 ux 구축에 많이 사용되는 React의 기능이다
 - React는 16.3버전 부터 정식적으로 context api를 지원함
