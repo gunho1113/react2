@@ -1,5 +1,24 @@
 # 202130418 유건호
 
+## 1127
+
+![Alt text](image-1.png)
+
+`$ git push -u origin main`
+
+`$ git remote -v`
+
+- origin등록을 확인
+
+```js
+<div>
+  <Link href="/"> io home </Link>
+  <Link href="/test"> test </Link>
+  <Link href="/foo"> foo home </Link>
+  <Link href="/foo/about"> about </Link>
+</div>
+```
+
 ## 1120
 
 ### use client
