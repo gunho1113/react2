@@ -1,0 +1,40 @@
+.name {
+  font: 15px;
+  color: blue;
+}
+.no {
+  font: 10px;
+  color: gray;
+}
+.path {
+  font: 8px;
+  color: yellowgreen;
+}
+
+[about].name {
+  font: 15px;
+  color: aqua;
+}
+
+[about].no {
+  font: 10px;
+  color: green;
+}
+[about].path {
+  font: 8px;
+  color: goldenrod;
+}
+
+[contact].name {
+  font: 15px;
+  color: slategrey;
+}
+
+[contact].no {
+  font: 10px;
+  color: red;
+}
+[contact].path {
+  font: 8px;
+  color: rebeccapurple;
+}
